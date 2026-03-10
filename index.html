@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <a href="daguul.html" class="active">Тоо</a>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #74ebd5, #9face6);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+
+      #btn {
+        padding: 12px 25px;
+        font-size: 18px;
+        border: none;
+        border-radius: 10px;
+        background-color: #ff6b6b;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+        margin-bottom: 20px;
+      }
+
+      #btn:hover {
+        background-color: #ff3b3b;
+        transform: scale(1.05);
+      }
+
+      #shooToo {
+        font-size: 50px;
+        color: #333;
+        margin: 20px 0;
+      }
+
+      #ShooZurag {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        border-radius: 15px;
+        background: white;
+        padding: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+    <button id="btn">Дарах</button>
+    <h1 id="shooToo">1</h1>
+    <img id="ShooZurag" src="shoo1.png" />
+    <script>
+      let zurag = document.getElementById("ShooZurag");
+      let btn = document.getElementById("btn");
+      let too = document.getElementById("shooToo");
+      let sum = Number(localStorage.getItem("nemeh")) || 0;
+      too.innerHTML = sum;
+      let count = 0;
+      btn.addEventListener("click", function () {
+        if (count < 6) {
+          let randomToo = Math.floor(Math.random() * 6) + 1;
+          sum += randomToo;
+          zurag.src = "shoo" + randomToo + ".png";
+          too.innerHTML = sum;
+          localStorage.setItem("nemeh", sum);
+          count++;
+          if (count == 5) {
+            btn.style.display = "none";
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

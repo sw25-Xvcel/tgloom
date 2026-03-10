@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="random()">Санамсаргүй тоо</button>
+    <h2 id="result"></h2>
+    <input type="text" id="check" />
+    <button onclick="shalgah()">Шалгах</button>
+    <button>0</button>
+    <button>1</button>
+    <script>
+      let num = 0;
+      function random() {
+        num = Math.floor(Math.random() * (20000 - 10000 + 1)) + 10000;
+        document.getElementById("result").innerHTML = num;
+        setTimeout(function () {
+          document.getElementById("result").innerHTML = "";
+        }, 50);
+      }
+      function shalgah() {
+        if (Number(document.getElementById("check").value) == num) {
+          alert("zov");
+          document.getElementById("check").value = "";
+        } else {
+          alert("buruu" + num);
+          document.getElementById("check").value = "";
+        }
+      }
+    </script>
+  </body>
+</html>
